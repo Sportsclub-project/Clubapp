@@ -1,0 +1,10 @@
+.fixtures_container{
+     margin-top: 5rem;
+     display: flex;
+     justify-content: center;
+}
+
+.form{
+    width:55%;
+    
+}
