@@ -6,7 +6,7 @@ import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
 import Home from './components/Home/Home';
 import Club from './components/Club/Club';
-import Fixture from './components/Fixture/Fixture';
+import Fixtures from './components/Fixture/Fixtures';
 import ContactUs from './components/ContactUs/ContactUs';
 import Footer from './components/Footer/Footer';
 import store from './store';
