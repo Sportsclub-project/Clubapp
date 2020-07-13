@@ -1,0 +1,83 @@
+.m-section img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 75vh;
+}
+
+.ms-container{
+    position: relative;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 16px;
+    width: 100%;
+    height: 75vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    /* border: solid red; */
+}
+
+.ms-container h4{
+    /* border: solid green; */
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+ /* .left-container{
+    border: solid yellow;
+ } */
+.left-container table{
+    background-color: rgb(48, 46, 45);
+    width: 90%;
+    margin: 25px;
+    padding: 20px;
+    overflow: hidden;
+}
+.left-team{
+    float: left;
+}
+.right-team{
+    float: right;
+}
+/* .right-container{
+    border: solid pink;
+} */
+.right-container table{
+    background-color: rgb(48, 46, 45);
+    width: 90%;
+    margin: 25px;
+    padding: 20px;
+}
+.ms-op{
+    text-align: center;
+    /* color: red;  */
+}
+
+.ms-date{
+    color: white;
+    margin: 20px 40px;
+}
+@media (min-width: 769px) and (max-width: 912px){
+    /* still to set */
+    .ms-container{
+        height: 80vh;
+    }
+    .m-section img{
+        height: 80vh;
+    }
+}
+@media (max-width: 768px){
+    
+    .ms-container h4{
+        margin-left: 30px;
+    }
+    .ms-container{
+        grid-template-columns: 100%;
+        height: 160vh;
+    }
+    .m-section img{
+        height: 160vh;
+    }
+}

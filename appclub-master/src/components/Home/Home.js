@@ -1,0 +1,23 @@
+import React from 'react';
+import './Home.css';
+import Ground from '../../assets/background/hero-1.jpg';
+import News from './News';
+import NextMatch from './Match update/Nextmatch';
+import Ranking from './Ranking/Ranking';
+
+const Home = () => { 
+    return (
+        <div className="set-bg">
+            <img src={Ground} alt="background"></img>
+            <div className="h-container">
+            <div><h4>15 June 2020 / 9:00 AM</h4></div>
+            <div><h2>Tampere Sports Club VS Helsinki Sports Club</h2></div>
+            </div>
+            <span> <News /> </span>
+            <div> <NextMatch /> </div>
+            <div> <Ranking /> </div>
+        </div>
+    );
+}
+
+export default Home;
