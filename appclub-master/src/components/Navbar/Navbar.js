@@ -3,14 +3,16 @@ import { Link, NavLink, Redirect } from 'react-router-dom';
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 import Logo from '../../assets/logo/logo.svg'
 import './Navbar.css';
-import Login from '../Login';
-import Register from '../Register';
+//import Login from '../Login';
+// import Register from '../Register';
 import Logout from '../Logout';
 
-import {connect} from 'react-redux'
+
+
+
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-
-
+import PlayerProfile from '../PlayerProfile';
 
 
 
@@ -20,22 +22,25 @@ class navbar extends Component {
         super(props);
         
     }
-    static propTypes={
-        auth:PropTypes.object.isRequired
-    
-    }
 
+  static propTypes={
+         auth:PropTypes.object.isRequired
+    
+     } 
+
+    
 
       
   
 
     render(){
-          const {isAuthenticated, user} = this.props.auth;
+         const {isAuthenticated, user} = this.props.auth;
       
-       const authLinks = (
+         const authLinks = (
             <>
-            
             <div>
+                <Logout/> 
+                
            </div>  
               
             </>
@@ -44,19 +49,21 @@ class navbar extends Component {
         <>
         <div>
          <div className="auth-nav"><ul>
-            <li><NavLink to="/register" className="link"> Sign up</NavLink></li> 
             <li><NavLink to="/login" className="link">Login</NavLink></li>
             </ul>
             </div>
             </div>
         </>
     );
+    
    
 
     return (
         <>
+        
        
         <div className="navbar">
+           
             <nav className="navbar_navigation">
                 <div className="navbar_toggle-button">
                     <DrawerToggleButton click={this.props.drawerClickHandler} />
@@ -75,21 +82,22 @@ class navbar extends Component {
                     </ul>
                    
                 </div>
-                  {isAuthenticated ? authLinks : guestLinks}  
+                 {isAuthenticated ? authLinks : guestLinks}    
+                  
             </nav>
-           
-         
           
         </div>
      
    
-        {/* { user ? 
+         { user ? 
         
         <div>
-         <h2>{ `Welcome ${ user.name }` }</h2>   
-     
+         <h2>{ `Welcome ${ user.name }`} <Redirect to='/playerProfile'/>
+         </h2>   
+         
+      
         </div>:
-        ''} */}
+        ''} 
         </>
     );
 }
@@ -97,7 +105,7 @@ class navbar extends Component {
 
 const mapStateToProps = state => ({
     auth: state.auth
-    });
+    }); 
     
 
-export default connect(mapStateToProps, null)(navbar)
+export default connect(mapStateToProps,null)(navbar);

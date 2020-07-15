@@ -1,9 +1,6 @@
 import React, { useState,useEffect,useCallback} from 'react';
 import {
   Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
   Form,
   FormGroup,
   Label,
@@ -64,7 +61,7 @@ const RegisterModal =({isAuthenticated, error,register,clearErrors})=>{
 
     return(
         <div style={{marginTop:"2rem"}}> 
-         
+        
           <h4 style={{textAlign:"center"}}>Sign Up</h4>           
             {msg ? <Alert color="danger">{msg}</Alert>: null}
           <Form onSubmit={handleOnSubmit}>

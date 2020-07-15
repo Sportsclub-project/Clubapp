@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route, Redirect} from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
 import Home from './components/Home/Home';
 import Club from './components/Club/Club';
-import Fixtures from './components/Fixture/Fixtures;
+import Fixture from './components/Fixture/Fixture';
 import ContactUs from './components/ContactUs/ContactUs';
 import Footer from './components/Footer/Footer';
 import store from './store';
 import { Provider } from 'react-redux';
-import Login from './components/Login';
+ import Login from './components/Login';
 import Register from './components/Register';
+import PlayerProfile from './components/PlayerProfile';
+import { Logout } from './components/Logout';
 
 
 
@@ -44,17 +46,18 @@ class App extends Component {
       <>
        <Provider store={store}>
       <div className="App">
+     
         <Navbar drawerClickHandler={this.drawerToggleClickHandler} />
 
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backDrop}
-          <main className="main-content"> <Route exact path='/' component={Home} />
+          <main className="main-content"> 
+          <Route exact path='/' component={Home} />
           <Route path='/club' component={Club} />
           <Route path='/fixture' component={Fixture} />
           <Route path='/contact' component={ContactUs} />
-          <Route path='/login' render={()=> <Login/>} />
-           {/* <Route path='/register' render={()=> <Register/>} /> */}
-           <Route path='/register' component={Register} /> 
+           <Route path='/login' render={()=><Login/>} /> 
+           <Route path='/register'render={()=><Register/>} /> 
           </main>
         <footer> <Footer /> </footer>
         </div>

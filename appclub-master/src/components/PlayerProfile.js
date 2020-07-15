@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react';
+import {NavLink} from 'react-router-dom';
 
-export default function PlayerProfile() {
+
+
+class PlayerProfile extends Component {
+
+    render(){
+
     return (
-        <div>
-        Players profile
+        <div >
+        <NavLink to="/playerProfile"/> 
+      player profile
         </div>
     )
 }
+}
+
+
+
+export default PlayerProfile;

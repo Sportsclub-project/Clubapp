@@ -1,10 +1,6 @@
-import React, { useState,useEffect,useCallback} from 'react';
+import React, { useState,useEffect} from 'react';
 import {
   Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
   Form,
   FormGroup,
   Label,
@@ -16,9 +12,11 @@ import { connect } from 'react-redux';
 //import PropTypes from 'prop-types';
 import {login} from '../actions/authActions';
 import { clearErrors } from '../actions/errorActions';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+
 //import { FaUserCircle} from 'react-icons/fa';
 import Logout from './Logout';
+import Register from './Register';
 
 
 
@@ -30,9 +28,7 @@ const Login =({auth,error,login,clearErrors})=>{
 const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 const [msg, setMsg] = useState(null);
-const [isLogged,setIsLogged]= useState(false);
-   
-  
+
 
       {/*  const handleToggle = useCallback(() => {
         // Clear errors
@@ -53,7 +49,7 @@ const [isLogged,setIsLogged]= useState(false);
     const user = {email,password};
     // Attempt to login
     login(user);
-    setIsLogged(!isLogged);
+   
    
     // setEmail({email:''});
     // setPassword({password:''})
@@ -74,12 +70,12 @@ const [isLogged,setIsLogged]= useState(false);
 
     return(
         <>
-        <div style={{marginTop:"2rem"}}>
+        <div style={{marginTop:"2rem"}} className="login-container">
              {/* <FaUserCircle style={{fontSize:"25px",margin:"1rem"}}></FaUserCircle>  */}
              <h4 style={{textAlign:"center"}}>Login</h4>      
             
-            {msg ? <span color="danger">{msg}</span>: null}
-          <Form onSubmit={handleOnSubmit}>
+            {msg ? <Alert color="danger">{msg}</Alert>: null}
+            <Form onSubmit={handleOnSubmit} className="form" >
             <FormGroup>
               <Label for='email'>Email</Label>
               <Input
@@ -103,13 +99,12 @@ const [isLogged,setIsLogged]= useState(false);
                 onChange={handleChangePassword}
               />
                    <Button color="dark" style={{ marginTop: '2rem' }} block>
-             Login 
+                Login 
               </Button>     
             </FormGroup>
           </Form>
-         
-          
-    
+      <div>Don't you have account? <a href="/register"> sign up</a>
+        </div>  
         </div>
      
       
