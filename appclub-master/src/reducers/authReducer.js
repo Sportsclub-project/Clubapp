@@ -13,6 +13,7 @@ import {
     token: localStorage.getItem('token'), // token which is comes from localstorage if there is one set 
     isAuthenticated: null, 
     isLoading: false,
+    isLoggedIn:false,
     user: null
   };
 
@@ -31,8 +32,17 @@ import {
           user: action.payload // we send th user as the payload
         };
       case LOGIN_SUCCESS:
+        localStorage.setItem('token', action.payload.token)
+        return {
+          ...state,
+          ...action.payload, // getting the token which is going to be included in the payload. action.payload going to have the user and token. 
+          isAuthenticated: true, //Remember that's what we are sending back from the backend and then is authenticated true and loading is false
+          isLoading: false,
+          isLoggedIn:true
+        };
       case REGISTER_SUCCESS:
           localStorage.setItem('token', action.payload.token)
+          alert("SUccefully Registered")
         return {
           ...state,
           ...action.payload, // getting the token which is going to be included in the payload. action.payload going to have the user and token. 

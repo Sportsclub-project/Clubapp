@@ -1,4 +1,4 @@
-import React, { useState,useEffect,useCallback} from 'react';
+import React, { useState,useEffect} from 'react';
 import {
   Button,
   Form,
@@ -11,12 +11,15 @@ import { connect } from 'react-redux';
 //import PropTypes from 'prop-types';
 import {register} from '../actions/authActions';
 import { clearErrors } from '../actions/errorActions';
-import {NavLink} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
+
 
 
 
 
 const RegisterModal =({isAuthenticated, error,register,clearErrors})=>{
+  
+
    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -40,8 +43,9 @@ const RegisterModal =({isAuthenticated, error,register,clearErrors})=>{
 
     };
 
-    // Attempt to login
+    // Attempt to register
     register(newUser);
+    
      
   };
    
@@ -53,17 +57,17 @@ const RegisterModal =({isAuthenticated, error,register,clearErrors})=>{
       setMsg(error.msg.msg);
     } else {
       setMsg(null);
-
     }
+ //If authenticated
  
-    
 },[error]);
+
+
 
     return(
         <div style={{marginTop:"2rem"}}> 
-        
           <h4 style={{textAlign:"center"}}>Sign Up</h4>           
-            {msg ? <Alert color="danger">{msg}</Alert>: null}
+            {msg ? <span style={{color:"red"}}>{msg}</span>: null}
           <Form onSubmit={handleOnSubmit}>
             <FormGroup>
               <Label for='name'>Name</Label>
@@ -101,7 +105,7 @@ const RegisterModal =({isAuthenticated, error,register,clearErrors})=>{
               </Button>
             </FormGroup>
           </Form>
-       
+          {isAuthenticated?(<Redirect to="/login"/>):(<Redirect to='/register'/>)} 
         </div>
     );
 };
