@@ -1,0 +1,100 @@
+img{
+    max-width: 200% !important;
+    height: 70vh;
+  
+}
+.set-bg{
+
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+    
+}
+.h-container{
+    position: absolute;
+    top: 20%;
+    color: white;
+    text-align: center;
+    
+    /* border-style: solid;
+    border-color: white; */
+}
+
+@media (max-width: 2600px){
+    .h-container{
+        left: 7%;
+        right: 5%;
+        padding: 55px 0px;
+    }
+}
+@media (max-width: 768px){
+    img{
+        height: 60vh;
+    }
+    h4{font-size: 1.2rem;}
+    h2{font-size: 1.8rem;}
+}
+@media (max-width: 620px){
+    h4{font-size: 1rem;}
+    h2{font-size: 1.5rem;}
+}
+
+ .row{
+    margin-left:0;
+ 
+    background-color: none;
+}
+.col1 h4{
+    margin-top:2rem;
+    margin-left: 5rem;
+    margin-bottom: 1rem;
+}
+.place-info_label{
+    font-weight: 400 !important;
+    color: #6f788d;
+    
+}
+.place_info{
+    margin-left:5px;
+    
+    font-weight: 700 !important;
+    
+}
+
+.match-place li{
+    list-style: none;
+   padding:0;
+}
+
+.col-sm{
+    margin-top:2rem;
+}
+.col-sm h2{
+margin:2rem;
+
+
+}
+.squad_list1, .squad_list2{
+    list-style: none;
+   
+}
+.squad_list1 li,.squad_list2 li{
+    border-top: 1px solid #dae0e4;
+    border-bottom: 1px solid #dae0e4;
+    list-style: none; 
+    padding:0.5rem;
+   
+}
+
+.squad_list1 li:nth-child(odd), .squad_list2 li:nth-child(odd){
+  
+    background: #fafafa;
+  }
+  
+.team-name{
+    
+    font-weight: 600;
+    font-size: 20px;
+     padding-left: 2.5rem;
+     padding-bottom: 1rem;
+}
